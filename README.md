@@ -23,4 +23,19 @@ Uses  **Feign Client** to communicate with passengers and drivers resource serve
 
 
 
+#Images of project:
+1. Microservices Architecture
+![Architecture](https://github.com/VladimirMarinkovic/travel-agency-microservice/blob/master/walter-config-server-microservice/src/main/resources/images/architecture.jpg)
 
+2. Login page
+![Login](https://github.com/VladimirMarinkovic/travel-agency-microservice/blob/master/walter-config-server-microservice/src/main/resources/images/login.jpg)
+username: admin   password: admin
+
+3. Employees Data Table
+![Zaposleni](https://github.com/VladimirMarinkovic/travel-agency-microservice/blob/master/walter-config-server-microservice/src/main/resources/images/zaposleni.jpg)
+
+4. Auth Server (OAuth2 + Jwt)
+![Auth](https://github.com/VladimirMarinkovic/travel-agency-microservice/blob/master/walter-config-server-microservice/src/main/resources/images/auth.jpg)
+
+4. Tour Content
+![Tura](https://github.com/VladimirMarinkovic/travel-agency-microservice/blob/master/walter-config-server-microservice/src/main/resources/images/turasadrzaj.jpg)
