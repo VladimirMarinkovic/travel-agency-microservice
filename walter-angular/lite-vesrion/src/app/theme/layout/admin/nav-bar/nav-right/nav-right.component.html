@@ -1,0 +1,23 @@
+<ul class="navbar-nav">
+  <li class="nav-item">
+    <app-nav-search></app-nav-search>
+  </li>
+  <li (click)="this.visibleUserList = !this.visibleUserList;"><a href="javascript:" class="displayChatbox"><i class="icon feather icon-mail"></i></a></li>
+  <li appToggleFullScreen><a href="javascript:" class="full-screen"><i class="feather icon-maximize"></i></a></li>
+</ul>
+
+<section class="header-user-list" *ngIf="visibleUserList && !this.dattaConfig['rtl-layout']" [ngClass]="{'open': visibleUserList}" [@slideInOutLeft]>
+  <app-chat-user-list (onChatToggle)="onChatToggle($event)" (onChatCollapse)="this.visibleUserList = !this.visibleUserList; this.chatMessage = false;"></app-chat-user-list>
+</section>
+
+<section class="header-chat" *ngIf="chatMessage && !this.dattaConfig['rtl-layout']" [ngClass]="{'open': chatMessage}" [@slideInOutLeft]>
+  <app-chat-msg (onChatToggle)="this.chatMessage = !this.chatMessage" [friendId]="friendId"></app-chat-msg>
+</section>
+
+<section class="header-user-list" *ngIf="visibleUserList && this.dattaConfig['rtl-layout']" [ngClass]="{'open': visibleUserList}" [@slideInOutRight]>
+  <app-chat-user-list (onChatToggle)="onChatToggle($event)" (onChatCollapse)="this.visibleUserList = !this.visibleUserList; this.chatMessage = false;"></app-chat-user-list>
+</section>
+
+<section class="header-chat" *ngIf="chatMessage && this.dattaConfig['rtl-layout']" [ngClass]="{'open': chatMessage}" [@slideInOutRight]>
+  <app-chat-msg (onChatToggle)="this.chatMessage = !this.chatMessage" [friendId]="friendId"></app-chat-msg>
+</section>

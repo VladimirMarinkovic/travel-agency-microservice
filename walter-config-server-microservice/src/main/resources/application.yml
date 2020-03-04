@@ -1,0 +1,27 @@
+server:
+  port: 8888
+
+spring:
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/shared   #tells spring where to locate the config files
+  profiles:
+    active: native    #using native because the config server uses a git repo by default
+  security:
+    user:
+      password: 1234   #the password which apps will use to access its configurations
+
+
+
+
+
+#spring.application.name=config-server
+#server.port:8888
+#management.endpoints.web.exposure.include=*
+# Local config
+#spring.cloud.config.server.git.uri: file:///${user.home}/spring/walterconfigrepo
+
+# GitHub config
+#spring.cloud.config.server.git.uri: https://github.com/VladimirMarinkovic/spring-cloud-config-server.git

@@ -1,0 +1,57 @@
+server:
+  port: 8087
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/waltertura?createDatabaseIfNotExist=true&useSSL=false&useUnicode=yes&characterEncoding=UTF-8
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+
+security:
+  oauth2:
+    resource:
+      token-info-uri: http://localhost:8081/oauth/check_token
+#      user-info-uri: http://localhost:8081/korisnici/ulogovan     # DODAO
+#      user-authorization-uri: http://localhost:8081/oauth/authorize
+
+    client:
+      client-id: tura-resource-client
+      client-secret: tura-resource-secret
+      authorized-grant-type: password
+      accessTokenUri: http://localhost:8081/oauth/token
+
+
+feign:
+  hystrix:
+    enabled: true
+
+
+management:
+  security:
+    enabled: false
+
+
+
+
+
+
+#  client:
+#    registration:
+#      tura-resource-server:
+#        provider: auth-service
+#        client-id: tura-resource-client
+#          client-secret: tura-resource-secret
+#          authorized-grant-type: password
+#          accessTokenUri: http://localhost:8081/oauth/token
+#      provider:
+#        auth-service:
+#          authorization-uri: http://localhost:8081/oauth/authorization
+#          token-uri: http://localhost:8081/oauth/token
+#          user-info-uri: http://localhost:8081/korisnici/ulogovan
+#          user-name-atribute: admin

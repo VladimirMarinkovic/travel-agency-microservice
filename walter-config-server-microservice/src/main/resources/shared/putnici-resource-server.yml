@@ -1,0 +1,28 @@
+server:
+  port: 8086
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/walterputnici?createDatabaseIfNotExist=true&useSSL=false&useUnicode=yes&characterEncoding=UTF-8
+
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+security:
+  oauth2:
+    resource:
+      token-info-uri: http://localhost:8081/oauth/check_token
+    client:
+      client-id: putnici-resource-client
+      client-secret: putnici-resource-secret
+      authorized-grant-type: password
+
+management:
+  security:
+    enabled: false
+

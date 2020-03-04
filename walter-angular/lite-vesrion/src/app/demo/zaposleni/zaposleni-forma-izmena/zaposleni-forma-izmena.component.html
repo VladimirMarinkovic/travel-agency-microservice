@@ -1,0 +1,71 @@
+
+
+<mat-toolbar>
+  <!--  <span>{{korisniKService.form.controls['$key'].value?"Izmeni korisnika":"Registruj korisnika"}}</span>-->
+  <span>Izmeni nalog </span>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="zatvoriFormu()"  tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+<form [formGroup]="zaposleniFormaIzmena"  class="normal-form" >
+  <mat-grid-list cols="2" rowHeight="300px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <!--        <input type="hidden" formControlName="$key">-->
+        <mat-form-field hidden>
+          <input  [formControlName]="'id'" matInput placeholder="ID*" hidden>
+        </mat-form-field>
+        <mat-form-field>
+          <input  [formControlName]="'ime'" matInput placeholder="Ime*">
+          <mat-error>Polje je obavezno.</mat-error>
+          <mat-error >Minimum 4 karaktera.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input  [formControlName]="'prezime'" matInput placeholder="Prezime*">
+          <mat-error>Polje je obavezno.</mat-error>
+          <mat-error >Minimum 4 karaktera.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input  [formControlName]="'email'" matInput placeholder="Email">
+          <mat-error>Nepravilna e-mail adresa.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input  [formControlName]="'radnoMesto'" matInput placeholder="Radno mesto*">
+          <mat-error>Polje je obavezno.</mat-error>
+          <mat-error >Minimum 4 karaktera.</mat-error>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="controles-container">
+        <div class="add-bottom-padding">
+          <mat-radio-group >
+            <mat-radio-button value="1">Male</mat-radio-button>
+            <mat-radio-button value="2">Female</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <mat-form-field>
+          <mat-select>
+            <mat-option>None</mat-option>
+            <ng-container >
+              <mat-option></mat-option>
+            </ng-container>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <input  matInput [matDatepicker]="picker" placeholder="Hire Date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <div class="add-bottom-padding">
+          <mat-checkbox>Permanent Employee</mat-checkbox>
+        </div>
+        <div class="button-row">
+          <button mat-raised-button  type="submit" [disabled]="zaposleniFormaIzmena.invalid" (click)="izmeniZaposlenog()" >Izmeni</button>
+          <button mat-flat-button color="warn" (click)="obrisiUneseno()" >Ponisti</button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>
+
+

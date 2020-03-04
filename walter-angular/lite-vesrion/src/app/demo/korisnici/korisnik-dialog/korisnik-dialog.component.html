@@ -1,0 +1,14 @@
+<div class="confirm-dialog-container">
+  <div class="content-container">
+    <mat-icon id="close-icon" (click)="zatvoriDialog()">close</mat-icon>
+    <div ><span class="span-dialog">Obrisi korisnika?</span><br>
+      <span class="span-dialog-username">{{korisnikKorisnickoIme}}</span><br>
+      <small>Email: {{korisnikEmail}}</small>
+    </div>
+  </div>
+
+  <button mat-flat-button id="no-button" [mat-dialog-close]="false">NE</button>
+  <button mat-flat-button id="yes-button" [mat-dialog-close]="true" (click)="obrisiKorisnika(korisnikId)" >DA</button>
+
+</div>
+

@@ -1,0 +1,13 @@
+<div class="confirm-dialog-container">
+  <div class="content-container">
+    <mat-icon id="close-icon" (click)="zatvoriDialog()">close</mat-icon>
+    <div ><span class="span-dialog">Obrisi zaposlenog?</span><br>
+       <span class="span-dialog-username">{{zaposleniIme}} {{zaposleniPrezime}}</span><br>
+       <small>Email: {{zaposleniEmail}}</small>
+    </div>
+  </div>
+
+  <button mat-flat-button id="no-button" [mat-dialog-close]="false">NE</button>
+  <button mat-flat-button id="yes-button" [mat-dialog-close]="true" (click)="obrisiZaposlenog(zaposleniId)" >DA</button>
+
+</div>

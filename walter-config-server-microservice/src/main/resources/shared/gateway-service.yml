@@ -1,0 +1,61 @@
+server:
+  port: 8080
+
+zuul:
+  sensitiveHeaders: Cookie,Set-Cookie
+  routes:
+    auth-service:
+      path: /auth-service/**
+    zaposleni-resource-server:
+      path: /zaposleni-resource-server/**
+    putnici-resource-server:
+      path: /putnici-resource-server/**
+    tura-resource-server:
+      path: /tura-resource-server/**
+      vozaci-resource-server:
+        path: /vozaci-resource-server/**
+
+
+ribbon:
+  ConnectTimeout: 10000
+  ReadTimeout: 60000
+  eager-load:
+    enabled: true
+eureka:
+  client:
+    service-url:
+      default-zone=http://localhost:8761/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 30
+    lease-expiration-duration-in-seconds: 90
+
+
+
+
+
+
+
+
+
+
+
+#hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
+
+#  ignored-headers: Access-Control-Allow-Credentials, Access-Control-Allow-Origin
+##eureka
+#eureka.client.service-url.default-zone=http://localhost:8761/eureka/
+#  #indicates the frequency the client sends heartbeats to indicate that it is still alive.
+#eureka.instance.lease-renewal-interval-in-seconds=30
+#  #indicates the duration the server waits since it received the last heartbeat before it can evict an instance from its registry
+#eureka.instance.lease-expiration-duration-in-seconds=90
+#
+#  #load balancing
+#ribbon.eureka.enabled=true
+#
+#  #timeout
+#  #this will help you load services eagerly. Otherwise for first time, we will get timeout exception.
+#zuul.ribbon.eager-load.enabled=true
+#  #The read timeout in milliseconds. Default is 1000ms
+#ribbon.ReadTimeout=60000
+#  #The Connection timeout in milliseconds. Default is 1000ms.
+#ribbon.ConnectTimeout=10000
